@@ -5,27 +5,30 @@ import java.util.Scanner;
 public class Calendar {
 
 	public static void main(String[] args) {
-		
+
+		String PROMPT = "cal> ";
 		Scanner scanner = new Scanner(System.in);
 		sub show = new sub();
 		show.printSampleCalendar();
 
 		System.out.println("반복횟수를 입력하세요.");
-		int repeat = scanner.nextInt();
-		int[] monthArr = new int[repeat];
 
-		System.out.println("월을 입력하세요.");
-		
-		for (int i = 0; i < repeat; i++) {
-			int month = scanner.nextInt();
-			monthArr[i] = month;
+		int month = 1;
+
+		while (true) {
+			System.out.println("달을 입력하세요.");
+			System.out.print(PROMPT);
+			month = scanner.nextInt();
+			if (month == -1) {
+				break;
+			}
+			if(month > 12) {
+				continue;
+			}
+			System.out.println(month + "월은 " + show.getMaxDayOfMonth(month) + "일까지 있습니다.");
 		}
-		
-		System.out.println();
-		
-		for (int i = 0; i < repeat; i++) {
-			System.out.println(monthArr[i] + "월은 " + show.getMaxDayOfMonth(monthArr[i]) + "일까지 있습니다.");
-		}
+
+		System.out.println("done");
 
 		scanner.close();
 	}
