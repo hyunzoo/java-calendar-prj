@@ -10,10 +10,14 @@ public class Prompt {
 		Scanner scanner = new Scanner(System.in);
 		sub show = new sub();
 		int month = 1;
+		int year = 1;
 
 		while (true) {
+			System.out.println("년을 입력하세요.");
+			System.out.print("YEAR> ");
+			year = scanner.nextInt();
 			System.out.println("달을 입력하세요.");
-			System.out.print(PROMPT);
+			System.out.print("MONTH> ");
 			month = scanner.nextInt();
 			if (month == -1) {
 				break;
@@ -21,7 +25,7 @@ public class Prompt {
 			if (month > 12) {
 				continue;
 			}
-			show.printCalendar(2020, month);
+			show.printCalendar(year, month);
 		}
 
 		System.out.println("done");
