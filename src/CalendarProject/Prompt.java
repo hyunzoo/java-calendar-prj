@@ -22,7 +22,6 @@ public class Prompt {
 		sub show = new sub();
 		int month = 1;
 		int year = 2020;
-		int weekday = 0;;
 
 		while (true) {
 			System.out.println("년을 입력하세요. (-1 : 종료)");
@@ -33,16 +32,16 @@ public class Prompt {
 			System.out.println("달을 입력하세요.");
 			System.out.print("MONTH> ");
 			month = scanner.nextInt();
-			System.out.println("첫 번째 요일을 입력하세요. (SU, MO, TU, WE, TH, FR, SA)");
-			System.out.print("WEEKDAY> ");
-			String str_weekday = scanner.next();
-			weekday = parseDay(str_weekday);
+//			System.out.println("첫 번째 요일을 입력하세요. (SU, MO, TU, WE, TH, FR, SA)");
+//			System.out.print("WEEKDAY> ");
+//			String str_weekday = scanner.next();
+//			weekday = parseDay(str_weekday);
 			
 			if (month > 12 || month < 1) {
 				System.out.println("잘못된 입력입니다.");
 				continue;
 			}
-			show.printCalendar(year, month, weekday);
+			show.printCalendar(year, month);
 		}
 
 		System.out.println("done");
@@ -55,4 +54,6 @@ public class Prompt {
 		Prompt p = new Prompt();
 		p.runPrompt();
 	}
+	
+	//1582년 10월 15일(금)
 }
